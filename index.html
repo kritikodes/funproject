@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="veiwport" content="width-device-width , initial-scale=1.0">
+        <title>
+            THALA REVIEW
+        </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="header">
+            <div class="tag">
+                <h1>DRS: DHONI REVEIW SYSTEM </h1>
+                <h2>Everything happens for a reason!</h2>
+            </div>
+        </div>
+        <div class="main">
+            <div class="input">
+                <input type="text" name="text" id="userInput" placeholder="Enter AnyThink ..." class="input">
+            </div>
+            <div class="check">
+                <button class="btn" onclick="checkWord()">Check</button>
+            </div>
+        </div>
+        <div id="popup">
+            <h2>Result</h2>
+            <h3 id="addText"></h3>
+            <p id="resultText"></p>
+            <video id="videoPlayer" controls autoplay loop>
+                <source id="videoSource" src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="close">
+                    <button onclick="closePopup()">Close</button>
+                </div>
+        </div>
+        
+
+        <script>
+            function checkWord() {
+                var userInput = document.getElementById('userInput').value;
+                var resultText = document.getElementById('resultText');
+                var addText = document.getElementById('addText');
+                var videoPlayer = document.getElementById("videoPlayer");
+                var videoSource = document.getElementById("videoSource");
+    
+                if (userInput.length === 7 || parseInt(userInput) === 7 || userInput.toLowerCase() === 'dhoni' || userInput.toLowerCase() === 'msd' || checkSum(userInput) == 7 ) {
+                    resultText.textContent = 'Thala for a reason !' ;
+                    addText.textContent = getSumString(userInput);
+                    videoSource.src = "msd.mp4";
+                } else {
+                    resultText.textContent = 'No Thala for you';
+                    videoSource.src = "sadd.mp4";
+                }
+
+                videoPlayer.load();
+                document.getElementById("popup").style.display = "block";
+    
+                showPopup();
+            }
+
+            function getSumString(word) {
+            var sumString = '';
+            for (var i = 0; i < word.length; i++) {
+                sumString += word[i];
+                if (i !== word.length - 1) {
+                    sumString += ' + ';
+                }
+            }
+            sumString += ' = 7';
+            return sumString;
+        }
+
+            function showPopup() {
+                var overlay = document.getElementById('overlay');
+                var popup = document.getElementById('popupResult');
+                overlay.style.display = 'block';
+                popup.style.display = 'block';
+            }
+    
+            function closePopup() {
+                document.getElementById("popup").style.display = "none";
+                document.getElementById("videoPlayer").pause();
+            }
+            function checkSum(userInput) {
+                var userInput = document.getElementById("userInput").value.trim();
+                var sum = 0;
+                for (var i = 0; i < userInput.length; i++) {
+                    sum += parseInt(userInput[i], 10);
+                }
+                return sum;
+            }
+
+        </script>
+        <footer>
+            <div class="cta">
+                <p>Connect with me for a reveiw or suggestions</p>
+                <div class="about-me">
+                    <div class="row">
+                        <div class="about-col">
+                            <a href="https://www.instagram.com/kritifromkolkata" class="zero-btn">Instagram Profile</a>
+                        </div>
+                        <div class="about-col">
+                            <a href="https://www.facebook.com/kritijha9211" class="zero-btn">Facebook Profile</a>
+                        </div>
+                        <div class="about-col">
+                            <a href="mailto:kritifromkolkata@gmail.com" class="zero-btn">Email Id</a>
+                        </div>
+                    </div>
+                </div>
+              <h1>Made with love by Kriti</h1>
+            </div>
+            
+        </footer>
+    </body>
+        
