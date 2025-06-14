@@ -7,7 +7,7 @@ This quirky little site checks if your input is exactly **7 characters long** â€
 
 ## How It Works
 1. Type anything.
-2. If it's **7 characters**,or **sum of digits is sum** the legend appears.
+2. If it's **7 characters**,or **sum of digits is 7** the legend appears.
 3. If not... try harder ðŸ˜Ž
 
 ## Why?
